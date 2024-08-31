@@ -1,0 +1,19 @@
+{
+  "name": "web-express-ejs",
+  "version": "1.0.0",
+  "description": "bljr express ejs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "fery ardi",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-validator": "^7.2.0",
+    "nodemon": "^3.1.4"
+  }
+}
