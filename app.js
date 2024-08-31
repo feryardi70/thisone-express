@@ -3,7 +3,7 @@ const expressLayout = require("express-ejs-layouts");
 const { loadContact, findContact, addContact, cekDuplikat } = require("./utils/contacts.js");
 const { body, validationResult, check } = require("express-validator");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 10000;
 
 //gunakan template ejs
 app.set("view engine", "ejs");
