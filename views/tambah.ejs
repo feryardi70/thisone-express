@@ -1,0 +1,27 @@
+<div class="container py-5">
+  <h2 class="mb-1">Form Tambah Data Kontak</h2>
+  <% if (typeof(errors) != 'undefined') { %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+      <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+    </ul>
+    <% }) %>
+  </div>
+  <% } %>
+  <form method="post" action="/contact">
+    <div class="mb-3">
+      <label for="nama" class="form-label">Nama</label>
+      <input type="text" class="form-control" id="nama" name="nama" aria-describedby="nama" />
+    </div>
+    <div class="mb-3">
+      <label for="noHp" class="form-label">No. HP</label>
+      <input type="text" class="form-control" id="noHp" name="noHp" aria-describedby="noHp" />
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">email</label>
+      <input type="email" class="form-control" id="email" name="email" aria-describedby="email" />
+    </div>
+    <button type="submit" class="btn" style="background-color: rgb(202, 141, 182)">Tambah Data</button>
+  </form>
+</div>

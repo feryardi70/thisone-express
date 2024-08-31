@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NodeJs Web Server</title>
+  </head>
+  <body>
+    <h1>Ini adalah halaman about</h1>
+    <p>percobaan</p>
+
+    <h4>Daftar Mahasiswa</h4>
+    <% if (mahasiswa.length < 1) { %>
+    <p>Data Mahasiswa masih kosong</p>
+    <% } %> <% mahasiswa.forEach(mhs => { %>
+    <ul>
+      <li>Nama: <%= mhs.nama %></li>
+      <li>Nama: <%= mhs.email %></li>
+    </ul>
+    <% }) %>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+<div class="container py-5">
+  <h2>Daftar Kontak</h2>
+  <button class="btn" style="background-color: rgb(87, 12, 61)">
+    <a href="/contact/add">Tambah Data Kontak</a>
+  </button>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nama</th>
+        <th scope="col">No. Hp</th>
+        <th scope="col">Aksi</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% if (contacts.length < 1) { %>
+      <tr>
+        <td colspan="4">
+          <div class="alert alert-secondary fw-bold" role="alert">
+            <div class="mb-0 text-center">Data Kontak Kosong!!!</div>
+          </div>
+        </td>
+      </tr>
+      <% } %> <% contacts.forEach((con, i) => { %>
+      <tr>
+        <th scope="row"><%= ++i %></th>
+        <td><%= con.nama %></td>
+        <td><%= con.noHp %></td>
+        <td>
+          <a href="/contact/<%= con.nama %>" class="btn btn-success badge rounded-pill"><i class="bi bi-info-circle"></i> Detail</a>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
