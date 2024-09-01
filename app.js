@@ -66,9 +66,9 @@ app.post(
     } else {
       Book.insertMany(req.body),
         (error, result) => {
-          console.log(result.status);
+          console.log(result.status.json());
           res.redirect("/contact");
-          //res.render("/contact");
+          res.render("contact", { layout: "Layouts/none", contacts });
         };
     }
   }
