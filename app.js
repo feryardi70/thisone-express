@@ -70,8 +70,8 @@ app.post(
           //res.redirect(301, "/contact");
           //res.render("contact", { layout: "Layouts/none", contacts });
         };
+      res.redirect("/contact");
     }
-    res.redirect("/contact");
   }
 );
 
