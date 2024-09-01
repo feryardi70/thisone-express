@@ -66,11 +66,12 @@ app.post(
     } else {
       Book.insertMany(req.body),
         (error, result) => {
-          //console.log(result.status.json());
-          res.redirect(301, "/contact");
+          console.log(result.status.json());
+          //res.redirect(301, "/contact");
           //res.render("contact", { layout: "Layouts/none", contacts });
         };
     }
+    res.redirect("/contact");
   }
 );
 
