@@ -1,7 +1,10 @@
 const express = require("express");
 const expressLayout = require("express-ejs-layouts");
-const { loadContact, findContact, addContact, cekDuplikat } = require("./utils/contacts.js");
 const { body, validationResult, check } = require("express-validator");
+
+require("./db");
+const Book = require("./model/contact.js");
+
 const app = express();
 const port = process.env.PORT || 10000;
 
@@ -37,9 +40,8 @@ app.get("/about", (req, res) => {
   res.render("about", { layout: "Layouts/main-layout", mahasiswa });
 });
 
-app.get("/contact", (req, res) => {
-  const contacts = loadContact();
-  //res.send("Ini adalah halaman contact");
+app.get("/contact", async (req, res) => {
+  const contacts = await Book.find();
   res.render("contact", { layout: "Layouts/none", contacts });
 });
 
@@ -47,8 +49,8 @@ app.get("/contact", (req, res) => {
 app.post(
   "/contact",
   [
-    body("nama").custom((value) => {
-      const duplikat = cekDuplikat(value);
+    body("nama").custom(async (value) => {
+      const duplikat = await Book.findOne({ nama: value });
       if (duplikat) {
         throw new Error("Nama dengan kontak tersebut sudah ada");
       }
@@ -60,14 +62,14 @@ app.post(
   (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      //return res.status(400).json({ errors: errors.array() });
       res.render("tambah", { layout: "Layouts/none", errors: errors.array() });
     } else {
-      addContact(req.body);
-      //console.log("Berhasil menambahkan kontak baru");
-      //res.send(req.body);
-      res.redirect("/contact");
-      //res.render("contact", { layout: "Layouts/none" });
+      Book.insertMany(req.body),
+        (error, result) => {
+          console.log(result.status);
+          res.redirect("/contact");
+          //res.render("/contact");
+        };
     }
   }
 );
@@ -77,9 +79,8 @@ app.get("/contact/add", (req, res) => {
 });
 
 // halaman detail kontak
-app.get("/contact/:nama", (req, res) => {
-  const contact = findContact(req.params.nama);
-
+app.get("/contact/:nama", async (req, res) => {
+  const contact = await Book.findOne({ nama: req.params.nama });
   res.render("detail", { layout: "Layouts/none", contact });
 });
 
