@@ -81,7 +81,7 @@ app.get("/contact/add", (req, res) => {
 
 // halaman detail kontak
 app.get("/contact/:nama", async (req, res) => {
-  const contact = await Book.findOne({ nama: req.params.nama }, {email: 0});
+  const contact = await Book.findOne({ nama: req.params.nama });
   res.render("detail", { layout: "Layouts/none", contact });
 });
 
