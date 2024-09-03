@@ -41,7 +41,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/contact", async (req, res) => {
-  const contacts = await Book.find( { $project: {email: 0} } );
+  const contacts = await Book.find({}, {email: 0});
   res.render("contact", { layout: "Layouts/none", contacts });
 });
 
