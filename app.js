@@ -41,7 +41,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/contact", async (req, res) => {
-  const contacts = await Book.find({}, {email: 0});
+  const contacts = await Book.find();
   res.render("contact", { layout: "Layouts/none", contacts });
 });
 
@@ -81,7 +81,7 @@ app.get("/contact/add", (req, res) => {
 
 // halaman detail kontak
 app.get("/contact/:nama", async (req, res) => {
-  const contact = await Book.findOne({ nama: req.params.nama });
+  const contact = await Book.findOne({ nama: req.params.nama }, {email: 0});
   res.render("detail", { layout: "Layouts/none", contact });
 });
 
