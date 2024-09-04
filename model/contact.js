@@ -5,6 +5,7 @@ const Book = mongoose.model("Book", {
   nama: String,
   noHp: String,
   email: String,
-}, {timestamps: true});
+  tanggal: Date,
+});
 
 module.exports = Book;
