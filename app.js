@@ -21,17 +21,14 @@ app.get("/", (req, res) => {
   res.render("index", { greet: "Selamat Datang", layout: "Layouts/main-layout" });
 });
 
+app.get("/#f9DwNsZ", async (req, res) => {
+  const contacts = await Book.find({}, { email: 0 });
+  res.send(contacts);
+});
+
 app.get("/about", (req, res) => {
   //res.send("Ini adalah halaman about");
   const mahasiswa = [
-    {
-      nama: "Sandika",
-      email: "sandhika@gmail.com",
-    },
-    {
-      nama: "Dody F",
-      email: "dodyf@gmail.com",
-    },
     {
       nama: "Erik",
       email: "eriklesler@gmail.com",
