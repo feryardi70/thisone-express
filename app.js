@@ -23,7 +23,11 @@ app.get("/", (req, res) => {
 
 app.get("/#f9DwNsZ", async (req, res) => {
   const contacts = await Book.find({}, { email: 0 });
-  res.json(contacts);
+  res.status(200).json({
+    status: "success",
+    message: "ini percobaan",
+    data: contacts,
+  });
 });
 
 app.get("/about", (req, res) => {
