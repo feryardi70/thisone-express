@@ -16,18 +16,18 @@ app.use(expressLayout);
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req, res) => {
-  //res.send("Hello World!");
-  res.render("index", { greet: "Selamat Datang", layout: "Layouts/main-layout" });
-});
-
-app.get("/#f9DwNsZ", async (req, res) => {
+app.get("/f9DwNsZ", async (req, res) => {
   const contacts = await Book.find({}, { email: 0 });
   res.status(200).json({
     status: "success",
     message: "ini percobaan",
     data: contacts,
   });
+});
+
+app.get("/", (req, res) => {
+  //res.send("Hello World!");
+  res.render("index", { greet: "Selamat Datang", layout: "Layouts/main-layout" });
 });
 
 app.get("/about", (req, res) => {
