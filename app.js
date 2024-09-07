@@ -21,11 +21,11 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/f9DwNsZ", async (req, res) => {
-  const contacts = await Book.find({}, { email: 0 });
+  const comments = await Comment.find({}, { email: 0 });
   res.status(200).json({
     status: "success",
     message: "ini percobaan",
-    data: contacts,
+    data: comments,
   });
 });
 
@@ -91,8 +91,9 @@ app.post(
     Comment.insertMany(req.body), (error, result) => {
     console.log(result.status.json());
 
-    res.redirect("/contact"); 
+     
     }
+    res.redirect("/contact");
   }
 );
 
