@@ -4,6 +4,7 @@ const { body, validationResult, check } = require("express-validator");
 
 require("./db");
 const Book = require("./model/contact.js");
+const Comment = require("./model/comment.js");
 
 const app = express();
 const port = process.env.PORT || 10000;
@@ -11,6 +12,9 @@ const port = process.env.PORT || 10000;
 //gunakan template ejs
 app.set("view engine", "ejs");
 app.use(expressLayout);
+
+//
+app.use(express.json());
 
 // built-in middleware
 app.use(express.static("public"));
@@ -72,6 +76,16 @@ app.post(
           //res.render("contact", { layout: "Layouts/none", contacts });
         };
       res.redirect("/contact");
+    }
+  }
+);
+
+app.post(
+  "/comment123", (req, res) => {
+    Comment.insertMany(req.body), (error, result) => {
+    console.log(result.status.json());
+
+    res.redirect("/contact"); 
     }
   }
 );
