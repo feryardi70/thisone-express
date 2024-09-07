@@ -50,6 +50,12 @@ app.get("/contact", async (req, res) => {
   res.render("contact", { layout: "Layouts/none", contacts });
 });
 
+app.get("/comment123", (req, res) => {
+  //const contacts = await Book.find();
+  res.render("comment123", { layout: "Layouts/none" });
+});
+
+
 // procesc add contact
 app.post(
   "/contact",
