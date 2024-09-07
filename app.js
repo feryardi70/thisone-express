@@ -24,7 +24,7 @@ app.get("/f9DwNsZ", async (req, res) => {
   const comments = await Comment.find({}, { email: 0 });
   res.status(200).json({
     status: "success",
-    message: "ini percobaan",
+    message: "successfully retrieved data from database",
     data: comments,
   });
 });
