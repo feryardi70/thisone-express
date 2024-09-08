@@ -10,15 +10,6 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <% if (contacts.length < 1) { %>
-      <tr>
-        <td colspan="4">
-          <div class="alert alert-secondary fw-bold" role="alert">
-            <div class="mb-0 text-center">Data Kontak Kosong!!!</div>
-          </div>
-        </td>
-      </tr>
-      <% } %> <% contacts.forEach((con, i) => { %>
       <tr>
         <td>{logo}  GA 215</td>
         <td>Jakarta</td>
@@ -33,7 +24,6 @@
 	<td>02</td>
 	<td>TO WAITING ROOM</td>
       </tr>
-      <% }) %>
     </tbody>
   </table>
 </div>
