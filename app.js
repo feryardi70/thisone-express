@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 
 app.get("/arrival", (req, res) => {
   //res.send("Hello World!");
-  res.render("arrival", { layout: "Layouts/none" });
+  res.render("arrival", { layout: "Layouts/arrival-layout" });
 });
 
 app.get("/about", (req, res) => {
