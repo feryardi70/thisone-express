@@ -1,0 +1,39 @@
+<div style="background-color: rgb(0,0,205)"> 
+  <table class="table">
+    <thead style="background-color: rgb(25,25,112)">
+      <tr>
+        <th scope="col">Flight</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Time</th>
+        <th scope="col">Gate</th>
+	<th scope="col">Remark</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% if (contacts.length < 1) { %>
+      <tr>
+        <td colspan="4">
+          <div class="alert alert-secondary fw-bold" role="alert">
+            <div class="mb-0 text-center">Data Kontak Kosong!!!</div>
+          </div>
+        </td>
+      </tr>
+      <% } %> <% contacts.forEach((con, i) => { %>
+      <tr>
+        <td>{logo}  GA 215</td>
+        <td>Jakarta</td>
+        <td>10.00</td>
+	<td>01</td>
+	<td>TO WAITING ROOM</td>
+      </tr>
+      <tr>
+        <td>{logo}  IU 700</td>
+        <td>Yogyakarta</td>
+        <td>07.00</td>
+	<td>02</td>
+	<td>TO WAITING ROOM</td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
