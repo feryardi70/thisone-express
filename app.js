@@ -41,7 +41,7 @@ app.get("/arrival", (req, res) => {
 
 app.get("/awsmonitoring", (req, res) => {
   //res.send("Hello World!");
-  res.render("awsmonitoring", { layout: "Layouts/none" });
+  res.render("awsmonitoring", { layout: "Layouts/aws-monitoring" });
 });
 
 app.get("/about", (req, res) => {
