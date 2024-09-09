@@ -39,6 +39,11 @@ app.get("/arrival", (req, res) => {
   res.render("arrival", { layout: "Layouts/arrival-layout" });
 });
 
+app.get("/awsmonitoring", (req, res) => {
+  //res.send("Hello World!");
+  res.render("awsmonitoring", { layout: "Layouts/none" });
+});
+
 app.get("/about", (req, res) => {
   //res.send("Ini adalah halaman about");
   const mahasiswa = [
